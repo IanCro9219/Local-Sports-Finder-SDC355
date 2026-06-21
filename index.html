@@ -1,0 +1,78 @@
+<!--
+Ian Crofford
+1.10 Project - GitHub Prep and Structural Implementation
+6/21/2026
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Local Sports Finder</title>
+    </head>
+
+    <body>
+
+        <h1 id="welcomeMessage">Welcome!</h1>
+
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#projects">Projects</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                My name is Ian Crofford and i am studying to obtain my bachelor's degree in software defvelopment.
+                This project is the beggining of a website that will help users find local sporting events by 
+                entering there zip code.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <a href="https://github.com/" target="_blank">
+                <img src="https://viaplaceholder.com/150" alt="Project 1">
+            </a>
+
+            <a href="https://github.com/" target="_blank">
+                <img src="https://via.placeholder.com/150" alt="Project 2">
+            </a>
+
+            <a href="https://github.com/" target="_blank">
+                <img src="https://viaplaceholder.com/150" alt="Project 3">
+            </a>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+
+            <form>
+                <label>Name:</label><br>
+                <input type="text" name="name"><br><br>
+
+                <label>Email:</label><br>
+                <input type="email" name="email"><br><br>
+
+                <label>Subject:</label><br>
+                <input type="text" name="subject"><br><br>
+
+                <label>Message:</label><br>
+                <textarea name="message"></textarea><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <script>
+            let userName = prompt("Enter your name:");
+
+            if (userName) {
+                document.getElementById("welcomeMessage").innertText = "Welcome, " + userName + "!";
+            }
+        </script>
+    </body>
+</html>
