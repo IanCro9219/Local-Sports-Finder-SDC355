@@ -1,0 +1,132 @@
+<!--
+Ian Crofford
+2.9 Project - Control Flow Implementation
+6/29/2026
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Local Sports Finder</title>
+
+        <link rel="stylesheet" href="Style.css">
+    </head>
+
+    <body>
+        <label>
+            <input type="checkbox" id="darkToggle"> Dark Mode
+        </label>
+
+        <h1 id="welcomeMessage">Welcome!</h1>
+
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#projects">Projects</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                My name is Ian Crofford i am studying to obtain my bachelor's degree in software development. 
+                This project is the beginning of a website that will help users find local sports game by entering their zip code.
+            </p>
+
+            <ul id="skillsList"></ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <a href="https://github.com/" target="_blank">
+                <img src="https://via.placeholder.com/150" alt="Project 1">
+            </a>
+
+            <a href="https://github.com/" target="_blank">
+                <img src="https://via.placeholder.com/150" alt="Project 2">
+            </a>
+
+            <a href="https://github.com/" target="_blank">
+                <img src="https://via.placeholder.com/150" alt="Project 3">
+            </a>
+        </section>
+
+        <section id="featured">
+            <h2>Featured Content</h2>
+
+            <div id="resources">
+                <h3>University Resources</h3>
+                <a href="https://www.ecpi.edu/" target="_blank">ECPI Home Page</a>
+            </div>
+
+            <div id="personal">
+                <h3>Personal Projects</h3>
+                <a href="https://github.com/" target="_blank">
+                    <img src="https://via.placeholder.com/150" alt="Personal Project">
+                </a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+
+            <form id="contactForm">
+                <label>Name:</label><br>
+                <input type="text" id="name"><br><br>
+
+                <label>Email:</label><br>
+                <input type="email"><br><br>
+
+                <label>Subject:</label><br>
+                <input type="text"><br><br>
+
+                <label>Message:</label><br>
+                <textarea></textarea><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+            <script>
+let userName = prompt("Enter your name:");
+if (userName) {
+    document.getElementById("welcomeMessage").innerText = "Welcome, " + userName + "!";
+}
+
+let skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub"];
+let skillsList = document.getElementById("skillsList");
+
+skills.forEach(skill => {
+    let li = document.createElement("li");
+    li.textContent = skill;
+    skillsList.appendChild(li);
+});
+
+let projectCount = document.querySelectorAll("#projects img").length;
+
+if (projectCount < 3) {
+    document.getElementById("resources").style.display = "block";
+    document.getElementById("personal").style.display = "block";
+} else {
+    document.getElementById("resources").style.display = "none";
+    document.getElementById("personal").style.display = "block";
+}
+
+document.getElementById("darkToggle").addEventListener("change", function() {
+    document.body.classList.toggle("dark");
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    alert("Thank you, " + name + ", your message has been sent!");
+});
+        </script>
+        
+    </body>
+
+
+</html>

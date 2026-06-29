@@ -1,0 +1,28 @@
+/*
+Ian Crofford
+2.9 Project Styles Sheet
+6/29/2026
+*/
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+body.dark {
+    background-color: black;
+    color: white;
+}
+
+#featured div {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+body.dark #featured dic {
+    border: 1px solid white;
+}
+
+img {
+    margin: 5px;
+}
