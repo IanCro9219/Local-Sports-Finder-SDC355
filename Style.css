@@ -1,7 +1,7 @@
 /*
 Ian Crofford
-2.9 Project Styles Sheet
-6/29/2026
+3.9 Creating and Referencing DOM Elements
+7/12/2026
 */
 
 body {
@@ -19,7 +19,7 @@ body.dark {
     margin: 10px 0;
 }
 
-body.dark #featured dic {
+body.dark #featured div {
     border: 1px solid white;
 }
 

@@ -1,95 +1,97 @@
 <!--
 Ian Crofford
-2.9 Project - Control Flow Implementation
-6/29/2026
+3.9 Project - Creating and Referencing DOM Elements
+7/12/2026
 -->
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Local Sports Finder</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Sports Finder</title>
 
-        <link rel="stylesheet" href="Style.css">
-    </head>
+    <link rel="stylesheet" href="Style.css">
+</head>
 
-    <body>
-        <label>
-            <input type="checkbox" id="darkToggle"> Dark Mode
-        </label>
+<body>
 
-        <h1 id="welcomeMessage">Welcome!</h1>
+    <label>
+        <input type="checkbox" id="darkToggle"> Dark Mode
+    </label>
 
-        <nav>
-            <a href="#about">About</a> |
-            <a href="#projects">Projects</a> |
-            <a href="#contact">Contact</a>
-        </nav>
+    <h1 id="welcomeMessage">Welcome!</h1>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                My name is Ian Crofford i am studying to obtain my bachelor's degree in software development. 
-                This project is the beginning of a website that will help users find local sports game by entering their zip code.
-            </p>
+    <nav>
+        <a href="#about">About</a> |
+        <a href="#projects">Projects</a> |
+        <a href="#contact">Contact</a>
+    </nav>
 
-            <ul id="skillsList"></ul>
-        </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            My name is Ian Crofford. I am studying to obtain my bachelor's degree in software development. 
+            This project is the beginning of a website that will help users find local sports games by entering their zip code.
+        </p>
 
-        <section id="projects">
-            <h2>Projects</h2>
+        <ul id="skillsList"></ul>
+    </section>
 
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <a href="https://github.com/" target="_blank">
+            <img src="https://via.placeholder.com/150" alt="Project 1">
+        </a>
+
+        <a href="https://github.com/" target="_blank">
+            <img src="https://via.placeholder.com/150" alt="Project 2">
+        </a>
+
+        <a href="https://github.com/" target="_blank">
+            <img src="https://via.placeholder.com/150" alt="Project 3">
+        </a>
+    </section>
+
+    <section id="featured">
+        <h2>Featured Content</h2>
+
+        <div id="resources">
+            <h3>University Resources</h3>
+            <a href="https://www.ecpi.edu/" target="_blank">ECPI Home Page</a>
+        </div>
+
+        <div id="personal">
+            <h3>Personal Projects</h3>
             <a href="https://github.com/" target="_blank">
-                <img src="https://via.placeholder.com/150" alt="Project 1">
+                <img src="https://via.placeholder.com/150" alt="Personal Project">
             </a>
+        </div>
+    </section>
 
-            <a href="https://github.com/" target="_blank">
-                <img src="https://via.placeholder.com/150" alt="Project 2">
-            </a>
+    <section id="contact">
+        <h2>Contact</h2>
 
-            <a href="https://github.com/" target="_blank">
-                <img src="https://via.placeholder.com/150" alt="Project 3">
-            </a>
-        </section>
+        <form id="contactForm">
+            <label>Name:</label><br>
+            <input type="text" id="name"><br><br>
 
-        <section id="featured">
-            <h2>Featured Content</h2>
+            <label>Email:</label><br>
+            <input type="email"><br><br>
 
-            <div id="resources">
-                <h3>University Resources</h3>
-                <a href="https://www.ecpi.edu/" target="_blank">ECPI Home Page</a>
-            </div>
+            <label>Subject:</label><br>
+            <input type="text"><br><br>
 
-            <div id="personal">
-                <h3>Personal Projects</h3>
-                <a href="https://github.com/" target="_blank">
-                    <img src="https://via.placeholder.com/150" alt="Personal Project">
-                </a>
-            </div>
-        </section>
+            <label>Message:</label><br>
+            <textarea></textarea><br><br>
 
-        <section id="contact">
-            <h2>Contact</h2>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
 
-            <form id="contactForm">
-                <label>Name:</label><br>
-                <input type="text" id="name"><br><br>
+<script>
 
-                <label>Email:</label><br>
-                <input type="email"><br><br>
-
-                <label>Subject:</label><br>
-                <input type="text"><br><br>
-
-                <label>Message:</label><br>
-                <textarea></textarea><br><br>
-
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-
-            <script>
 let userName = prompt("Enter your name:");
 if (userName) {
     document.getElementById("welcomeMessage").innerText = "Welcome, " + userName + "!";
@@ -103,6 +105,12 @@ skills.forEach(skill => {
     li.textContent = skill;
     skillsList.appendChild(li);
 });
+
+let newProject = document.createElement("p");
+newProject.innerText = "New Project Coming Soon: Local Sports Search Feature!";
+document.getElementById("projects").appendChild(newProject);
+
+document.querySelector("#about").style.backgroundColor = "#f0f0f0";
 
 let projectCount = document.querySelectorAll("#projects img").length;
 
@@ -121,12 +129,24 @@ document.getElementById("darkToggle").addEventListener("change", function() {
 document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    let name = document.getElementById("name").value;
-    alert("Thank you, " + name + ", your message has been sent!");
+    let form = document.getElementById("contactForm");
+
+    let message = document.createElement("p");
+    message.innerText = "Sending message...";
+    form.appendChild(message);
+
+    setTimeout(function() {
+        message.innerText = "Message sent successfully!";
+    }, 2000);
 });
-        </script>
-        
-    </body>
 
+setTimeout(function() {
+    let notice = document.createElement("p");
+    notice.innerText = "Welcome to my portfolio!";
+    document.body.prepend(notice);
+}, 1500);
 
+</script>
+
+</body>
 </html>
